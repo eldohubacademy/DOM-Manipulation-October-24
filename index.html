@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>DOM Manipulation</h1>
+    <button id="change-color">Change Color</button>
+    <p>hello</p>
+    <button id="plus">+</button>
+    <span>0</span>
+    <button id="minus">-</button>
+    <!-- notification element -->
+    <div id="notification">
+      <p>Succesfully completed the task!!!</p>
+      <button id="close-notification">X</button>
+    </div>
+
+    <style>
+      #notification {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        background-color: rgb(15, 129, 15);
+        color: white;
+        font-weight: bold;
+        padding: 18px;
+        border-radius: 7px;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+      }
+      #notification button {
+        background: transparent;
+        border: none;
+        font-size: 1.3rem;
+        color: white;
+        transition: all 0.3s ease-in-out;
+      }
+      #notification button:hover {
+        background-color: green;
+        transform: scale(1.15);
+        cursor: pointer;
+      }
+    </style>
+
+    <script src="./file.js"></script>
+  </body>
+</html>
