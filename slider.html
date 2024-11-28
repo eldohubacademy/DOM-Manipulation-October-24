@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Slider</h1>
+    <div class="container" id="container">
+      <div class="slide active" id="one">
+        <h2>Software Development</h2>
+      </div>
+      <div class="slide" id="two">
+        <h2>Data Science</h2>
+      </div>
+      <div class="slide" id="three">
+        <h2>Cyber Security</h2>
+      </div>
+      <div class="slide" id="four">
+        <h2>Graphic Design</h2>
+      </div>
+      <button id="next">&gt;</button>
+      <button id="previous">&lt;</button>
+    </div>
+    <style>
+      .container {
+        position: relative;
+      }
+      button {
+        position: absolute;
+        top: 50%;
+        transform: translateX(-50%);
+        background-color: green;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      #next {
+        right: 20px;
+      }
+      #previous {
+        left: 20px;
+      }
+      .slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 60px;
+        height: 80vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        font-size: 50px;
+        text-shadow: 2px 2px green;
+        display: none;
+      }
+      .slide.active {
+        display: flex;
+      }
+      #one {
+        background-image: url("./DSC_2068.jpg");
+      }
+      #two {
+        background-image: url("./DSC_2147.jpg");
+      }
+      #three {
+        background-image: url("./IMG_2534.JPG");
+      }
+      #four {
+        background-image: url("./kijijipictures-8551.jpg");
+      }
+    </style>
+
+    <script>
+      // select all elements we need
+      const allSlides = document.querySelectorAll(".slide");
+      const nextBtn = document.querySelector("#next");
+      const previousBtn = document.querySelector("#previous");
+      // identify default active slide
+      let activeSlide = 0;
+      // when next is clicked
+      nextBtn.addEventListener("click", () => {
+        allSlides[activeSlide].classList.remove("active");
+        let nextSlide = activeSlide + 1;
+        if (nextSlide >= allSlides.length) {
+          nextSlide = 0;
+        }
+        allSlides[nextSlide].classList.add("active");
+        activeSlide = nextSlide;
+      });
+      previousBtn.addEventListener("click", () => {
+        allSlides[activeSlide].classList.remove("active");
+        let nextSlide = activeSlide - 1;
+        if (nextSlide <= 0) {
+          nextSlide = allSlides.length - 1;
+        }
+        allSlides[nextSlide].classList.add("active");
+        activeSlide = nextSlide;
+      });
+    </script>
+  </body>
+</html>
+
+<!-- hide active slide, create nex slide == activeslide + 1 , ,, if next slide >- number of slides, set next slide = 0 ....... activate that next slide and  change active slide to -->
